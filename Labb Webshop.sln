@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labb Webshop", "Labb Webshop\Labb Webshop.csproj", "{5CBFA89B-DC32-409B-8849-5FF92A4B60D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labb Webbshop", "Labb Webshop\Labb Webbshop.csproj", "{5CBFA89B-DC32-409B-8849-5FF92A4B60D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
