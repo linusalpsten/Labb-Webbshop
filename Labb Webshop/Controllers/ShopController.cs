@@ -11,15 +11,73 @@ namespace Labb_Webshop.Controllers
     {
         public IActionResult Index()
         {
-            var list = new List<Item>()
+            var list = new List<Product>()
             {
-                new Item
+                new Product
                 {
                     Name = "TestItem",
                     Description = "Item for testing",
                     Price = 10m,
-                    ImagePath = "/default.png"
-                }
+                    ImagePath = "/default.png",
+                    NrInStock = 10
+                },
+                new Product
+                {
+                    Name = "TestItem",
+                    Description = "Item for testing",
+                    Price = 10m,
+                    ImagePath = "/default.png",
+                    NrInStock = 10
+                },
+                new Product
+                {
+                    Name = "TestItem",
+                    Description = "Item for testing",
+                    Price = 10m,
+                    ImagePath = "/default.png",
+                    NrInStock = 10
+                },
+                new Product
+                {
+                    Name = "TestItem",
+                    Description = "Item for testing",
+                    Price = 10m,
+                    ImagePath = "/default.png",
+                    NrInStock = 10
+                },
+                new Product
+                {
+                    Name = "TestItem",
+                    Description = "Item for testing",
+                    Price = 10m,
+                    ImagePath = "/default.png",
+                    NrInStock = 10
+                },
+                new Product
+                {
+                    Name = "TestItem",
+                    Description = "Item for testing",
+                    Price = 10m,
+                    ImagePath = "/default.png",
+                    NrInStock = 10
+                },
+                new Product
+                {
+                    Name = "TestItem",
+                    Description = "Item for testing",
+                    Price = 10m,
+                    ImagePath = "/default.png",
+                    NrInStock = 10
+                },
+                new Product
+                {
+                    Name = "TestItem",
+                    Description = "Item for testing",
+                    Price = 10m,
+                    ImagePath = "/default.png",
+                    NrInStock = 10
+                },
+
             };
             return View(list);
         }

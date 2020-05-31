@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Labb_Webshop.Models.Item>
+﻿@model IEnumerable<Labb_Webshop.Models.Product>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,16 +7,16 @@
 <h1>Products</h1>
 
 <div class="container-fluid" id="shopList">
-    @foreach (var item in Model)
+    @foreach (var product in Model)
     {
         <div class="col-lg-3 col-md-4 col-sm-6 float-left">
             <div class="product">
-                <div class="ShopImage" style="background-image:url(@item.ImagePath);"></div>
+                <div class="ShopImage" style="background-image:url(@product.ImagePath);"></div>
                 <div class="text-center">
-                    @Html.DisplayFor(modelItem => item.Name) <br />
-                    @Html.DisplayFor(modelItem => item.Description) <br />
-                    @Html.DisplayFor(modelItem => item.Price) kr <br />
-                    @Html.ActionLink("Add to cart", "AddToCard", "Shop", new { Id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.DisplayFor(modelItem => product.Name) <br />
+                    @Html.DisplayFor(modelItem => product.Description) <br />
+                    @Html.DisplayFor(modelItem => product.Price) kr <br />
+                    @Html.ActionLink("Add to cart", "AddToCard", "Shop", new { Id = product.Id }, new { @class = "btn btn-primary" })
                 </div>
             </div>
         </div>
