@@ -6,7 +6,7 @@
 
 <h1>Products</h1>
 
-<div class="container-fluid" id="shopList">
+<div class="row">
     @foreach (var product in Model)
     {
         <div class="col-lg-3 col-md-4 col-sm-6 float-left">
@@ -16,7 +16,15 @@
                     @Html.DisplayFor(modelItem => product.Name) <br />
                     @Html.DisplayFor(modelItem => product.Description) <br />
                     @Html.DisplayFor(modelItem => product.Price) kr <br />
-                    @Html.ActionLink("Add to cart", "AddToCard", "Shop", new { Id = product.Id }, new { @class = "btn btn-primary" })
+                    Stock: @Html.DisplayFor(modelItem => product.NrInStock) <br />
+                    @if (product.NrInStock <= 0)
+                    {
+                        @Html.ActionLink("Add to cart", "AddToCart", "Shop", new { Id = product.Id }, new { @class = "btn btn-primary disabled" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Add to cart", "AddToCart", "Shop", new { Id = product.Id }, new { @class = "btn btn-primary" })
+                    }
                 </div>
             </div>
         </div>

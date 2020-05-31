@@ -82,12 +82,12 @@ namespace Labb_Webshop.Controllers
             return View(list);
         }
 
-        public IActionResult AddToCard(Guid Id)
+        public IActionResult AddToCart(Guid Id, string redirect = "Index")
         {
             var cart = Request.Cookies.SingleOrDefault(c => c.Key == "cart");
             string cartContent = "";
 
-            if (cart.Value != null)
+            if (!string.IsNullOrEmpty(cart.Value))
             {
                 cartContent = cart.Value;
                 cartContent += "," + Id;
@@ -98,6 +98,8 @@ namespace Labb_Webshop.Controllers
             }
 
             Response.Cookies.Append("cart", cartContent);
+            return RedirectToAction(redirect);
+        }
 
             return RedirectToAction("Index");
         }
