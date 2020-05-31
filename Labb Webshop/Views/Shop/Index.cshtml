@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Labb_Webshop.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Products</h1>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6 float-left">
+            <div class="product">
+                <div class="ShopImage" style="background-image:url(@product.ImagePath);"></div>
+                <div class="text-center">
+                    @Html.DisplayFor(modelItem => product.Name) <br />
+                    @Html.DisplayFor(modelItem => product.Description) <br />
+                    @Html.DisplayFor(modelItem => product.Price) kr <br />
+                    Stock: @Html.DisplayFor(modelItem => product.NrInStock) <br />
+                    @if (product.NrInStock <= 0)
+                    {
+                        @Html.ActionLink("Add to cart", "AddToCart", "Shop", new { Id = product.Id }, new { @class = "btn btn-primary disabled" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Add to cart", "AddToCart", "Shop", new { Id = product.Id }, new { @class = "btn btn-primary" })
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
