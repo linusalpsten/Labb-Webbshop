@@ -20,7 +20,7 @@ namespace Labb_Webshop.Controllers
                     Description = "Item for testing",
                     Price = 10m,
                     ImagePath = "/default.png",
-                    NrInStock = 0
+                    Stock = 0
                 },
                 new Product
                 {
@@ -28,7 +28,7 @@ namespace Labb_Webshop.Controllers
                     Description = "Item for testing",
                     Price = 10m,
                     ImagePath = "/default.png",
-                    NrInStock = 10
+                    Stock = 10
                 },
                 new Product
                 {
@@ -36,7 +36,7 @@ namespace Labb_Webshop.Controllers
                     Description = "Item for testing",
                     Price = 10m,
                     ImagePath = "/default.png",
-                    NrInStock = 10
+                    Stock = 10
                 },
                 new Product
                 {
@@ -44,7 +44,7 @@ namespace Labb_Webshop.Controllers
                     Description = "Item for testing",
                     Price = 10m,
                     ImagePath = "/default.png",
-                    NrInStock = 10
+                    Stock = 10
                 },
                 new Product
                 {
@@ -52,7 +52,7 @@ namespace Labb_Webshop.Controllers
                     Description = "Item for testing",
                     Price = 10m,
                     ImagePath = "/default.png",
-                    NrInStock = 10
+                    Stock = 10
                 },
                 new Product
                 {
@@ -60,7 +60,7 @@ namespace Labb_Webshop.Controllers
                     Description = "Item for testing",
                     Price = 10m,
                     ImagePath = "/default.png",
-                    NrInStock = 10
+                    Stock = 10
                 },
                 new Product
                 {
@@ -68,7 +68,7 @@ namespace Labb_Webshop.Controllers
                     Description = "Item for testing",
                     Price = 10m,
                     ImagePath = "/default.png",
-                    NrInStock = 10
+                    Stock = 10
                 },
                 new Product
                 {
@@ -76,7 +76,7 @@ namespace Labb_Webshop.Controllers
                     Description = "Item for testing",
                     Price = 10m,
                     ImagePath = "/default.png",
-                    NrInStock = 10
+                    Stock = 10
                 },
 
             };
@@ -126,7 +126,7 @@ namespace Labb_Webshop.Controllers
                     Description = "Item for testing",
                     Price = 10m,
                     ImagePath = "/default.png",
-                    NrInStock = 10
+                    Stock = 10
                 }
             };
 
