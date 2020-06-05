@@ -5,7 +5,7 @@
     bool enoughInStock = true;
     foreach (var product in Model)
     {
-        if (product.Count > product.Product.NrInStock)
+        if (product.Count > product.Product.Stock)
         {
             enoughInStock = false;
             break;
@@ -46,9 +46,9 @@ else
                     @Html.DisplayFor(modelItem => product.Product.Name) <br />
                     @Html.DisplayFor(modelItem => product.Product.Description) <br />
                     @Html.DisplayFor(modelItem => product.Product.Price) kr <br />
-                    Stock: @Html.DisplayFor(modelItem => product.Product.NrInStock) <br />
+                    Stock: @Html.DisplayFor(modelItem => product.Product.Stock) <br />
                     Count: @Html.DisplayFor(modelitem => product.Count) <br />
-                    @if (product.Count >= product.Product.NrInStock)
+                    @if (product.Count >= product.Product.Stock)
                     {
                         @Html.ActionLink("+", "AddToCart", "Shop", new { Id = product.Product.Id, redirect = "ViewCart" }, new { @class = "btn btn-primary disabled" })
                     }
