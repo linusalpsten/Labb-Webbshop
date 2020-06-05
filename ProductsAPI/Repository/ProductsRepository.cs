@@ -8,19 +8,22 @@ namespace ProductsAPI.Repository
 {
     public class ProductsRepository
     {
+        private readonly ProductContext context = new ProductContext();
         public Product GetById(Guid id)
         {
-            return new Product();
+            return context.Products.SingleOrDefault(p => p.Id == id);
         }
 
         public IEnumerable<Product> GetAll()
         {
-            return new List<Product>();
+            return context.Products.ToList();
         }
 
         public void ChangeStock(Guid id, int newStock)
         {
-
+            var product = GetById(id);
+            product.Stock = newStock;
+            context.SaveChanges();
         }
     }
 }
