@@ -63,7 +63,7 @@ namespace ProductsAPI.Tests
         public void AddProduct_Adds_Product()
         {
             var productsRepository = new ProductsRepository();
-            var product = productsRepository.AddProduct(new Product
+            var product = productsRepository.Add(new Product
             {
                 Name = "xUnit",
                 Description = "xUnit",
@@ -72,6 +72,7 @@ namespace ProductsAPI.Tests
                 Stock = 10
             });
 
+            //assumes GetById works
             var dbProduct = productsRepository.GetById(product.Id);
             Assert.Equal(product, dbProduct);
         }

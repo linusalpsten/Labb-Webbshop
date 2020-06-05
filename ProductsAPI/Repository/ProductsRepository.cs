@@ -26,9 +26,11 @@ namespace ProductsAPI.Repository
             context.SaveChanges();
         }
 
-        public Product AddProduct(Product product)
+        public Product Add(Product product)
         {
-            return new Product();
+            context.Products.Add(product);
+            context.SaveChanges();
+            return product;
         }
     }
 }
