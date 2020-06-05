@@ -30,7 +30,7 @@ namespace ProductsAPI.Controllers
             return new ProductsRepository().GetById(id);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("[controller]/ChangeStock/{id}/{newStock}")]
         public void ChangeStock(Guid id, int newStock)
         {
