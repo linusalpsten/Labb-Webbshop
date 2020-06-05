@@ -35,7 +35,10 @@ namespace ProductsAPI.Repository
 
         public Product RemoveById(Guid id)
         {
-            return new Product();
+            var product = GetById(id);
+            context.Remove(product);
+            context.SaveChanges();
+            return product;
         }
     }
 }
