@@ -14,12 +14,19 @@ namespace ProductsAPI.Tests
         [Fact]
         public void GetProductById_Returns_Product()
         {
-            var id = Guid.Empty;
             var productsRepository = new ProductsRepository();
-            var product = productsRepository.GetById(id);
+            var added = productsRepository.Add(new Product
+            {
+                Name = "xUnit",
+                Description = "xUnit",
+                Price = 10m,
+                ImagePath = "/default.png",
+                Stock = 10
+            });
+            var product = productsRepository.GetById(added.Id);
 
             Assert.IsType<Product>(product);
-            Assert.Equal(id, product.Id);
+            Assert.Equal(added.Id, product.Id);
         }
 
         [Fact]
@@ -46,16 +53,23 @@ namespace ProductsAPI.Tests
         [Fact]
         public void ChangeStock_Changes_ProductStock()
         {
-            var id = Guid.Empty;
             var productsRepository = new ProductsRepository();
+            var added = productsRepository.Add(new Product
+            {
+                Name = "xUnit",
+                Description = "xUnit",
+                Price = 10m,
+                ImagePath = "/default.png",
+                Stock = 10
+            });
 
             //change and test twice with different values to make sure the stock actually changed
-            productsRepository.ChangeStock(id, 5);
-            var product = productsRepository.GetById(id);
+            productsRepository.ChangeStock(added.Id, 5);
+            var product = productsRepository.GetById(added.Id);
             Assert.Equal(5, product.Stock);
 
-            productsRepository.ChangeStock(id, 4);
-            product = productsRepository.GetById(id);
+            productsRepository.ChangeStock(added.Id, 4);
+            product = productsRepository.GetById(added.Id);
             Assert.Equal(4, product.Stock);
         }
 
