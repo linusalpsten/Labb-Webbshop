@@ -58,5 +58,22 @@ namespace ProductsAPI.Tests
             product = productsRepository.GetById(id);
             Assert.Equal(4, product.Stock);
         }
+
+        [Fact]
+        public void AddProduct_Adds_Product()
+        {
+            var productsRepository = new ProductsRepository();
+            var product = productsRepository.AddProduct(new Product
+            {
+                Name = "xUnit",
+                Description = "xUnit",
+                Price = 10m,
+                ImagePath = "/default.png",
+                Stock = 10
+            });
+
+            var dbProduct = productsRepository.GetById(product.Id);
+            Assert.Equal(product, dbProduct);
+        }
     }
 }

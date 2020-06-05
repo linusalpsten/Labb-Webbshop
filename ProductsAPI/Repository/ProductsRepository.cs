@@ -25,5 +25,10 @@ namespace ProductsAPI.Repository
             product.Stock = newStock;
             context.SaveChanges();
         }
+
+        public Product AddProduct(Product product)
+        {
+            return new Product();
+        }
     }
 }
