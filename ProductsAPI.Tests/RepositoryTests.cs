@@ -76,5 +76,25 @@ namespace ProductsAPI.Tests
             var dbProduct = productsRepository.GetById(product.Id);
             Assert.Equal(product, dbProduct);
         }
+
+        [Fact]
+        public void RemoveById_Removes_Product()
+        {
+            var productsRepository = new ProductsRepository();
+            // add a product to remove
+            var product = productsRepository.Add(new Product
+            {
+                Name = "xUnit",
+                Description = "xUnit",
+                Price = 10m,
+                ImagePath = "/default.png",
+                Stock = 10
+            });
+
+            productsRepository.RemoveById(product.Id);
+            // assumes GetAll works
+            var products = productsRepository.GetAll();
+            Assert.DoesNotContain(products, p => p.Id == product.Id);
+        }
     }
 }
