@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labb Webbshop", "Labb Webshop\Labb Webbshop.csproj", "{5CBFA89B-DC32-409B-8849-5FF92A4B60D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Labb Webbshop", "Labb Webshop\Labb Webbshop.csproj", "{5CBFA89B-DC32-409B-8849-5FF92A4B60D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsAPI", "ProductsAPI\ProductsAPI.csproj", "{2BA10301-BE09-4F53-B588-D61CB101D0C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsAPI.Tests", "ProductsAPI.Tests\ProductsAPI.Tests.csproj", "{89A7D768-D5BD-4847-AF12-A718F81B9F98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{5CBFA89B-DC32-409B-8849-5FF92A4B60D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CBFA89B-DC32-409B-8849-5FF92A4B60D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CBFA89B-DC32-409B-8849-5FF92A4B60D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BA10301-BE09-4F53-B588-D61CB101D0C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BA10301-BE09-4F53-B588-D61CB101D0C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BA10301-BE09-4F53-B588-D61CB101D0C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BA10301-BE09-4F53-B588-D61CB101D0C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A7D768-D5BD-4847-AF12-A718F81B9F98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A7D768-D5BD-4847-AF12-A718F81B9F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A7D768-D5BD-4847-AF12-A718F81B9F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A7D768-D5BD-4847-AF12-A718F81B9F98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
