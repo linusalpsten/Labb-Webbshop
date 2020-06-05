@@ -12,5 +12,15 @@ namespace ProductsAPI.Repository
         {
             return new Product();
         }
+
+        public IEnumerable<Product> GetAll()
+        {
+            return new List<Product>();
+        }
+
+        public void ChangeStock(Guid id, int newStock)
+        {
+
+        }
     }
 }
