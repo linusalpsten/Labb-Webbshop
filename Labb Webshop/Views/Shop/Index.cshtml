@@ -16,8 +16,8 @@
                     @Html.DisplayFor(modelItem => product.Name) <br />
                     @Html.DisplayFor(modelItem => product.Description) <br />
                     @Html.DisplayFor(modelItem => product.Price) kr <br />
-                    Stock: @Html.DisplayFor(modelItem => product.NrInStock) <br />
-                    @if (product.NrInStock <= 0)
+                    Stock: @Html.DisplayFor(modelItem => product.Stock) <br />
+                    @if (product.Stock <= 0)
                     {
                         @Html.ActionLink("Add to cart", "AddToCart", "Shop", new { Id = product.Id }, new { @class = "btn btn-primary disabled" })
                     }
