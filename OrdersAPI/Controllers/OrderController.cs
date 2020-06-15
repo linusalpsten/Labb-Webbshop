@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using OrdersAPI.Filters;
 using OrdersAPI.Models;
 using OrdersAPI.Repository;
 
@@ -44,6 +45,7 @@ namespace OrdersAPI.Controllers
             return new OrdersRepository().GetByProductId(userId);
         }
 
+        [ApiKeyAuth]
         [HttpPost]
         [Route("[controller]/Add")]
         public Order Add(Order order)
@@ -51,6 +53,7 @@ namespace OrdersAPI.Controllers
             return new OrdersRepository().Add(order);
         }
 
+        [ApiKeyAuth]
         [HttpPost]
         [Route("[controller]/RemoveById/{id}")]
         public Order RemoveById(Guid id)

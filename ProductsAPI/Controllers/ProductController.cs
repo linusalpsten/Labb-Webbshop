@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ProductsAPI.Filters;
 using ProductsAPI.Models;
 using ProductsAPI.Repository;
 
@@ -30,6 +31,7 @@ namespace ProductsAPI.Controllers
             return new ProductsRepository().GetById(id);
         }
 
+        [ApiKeyAuth]
         [HttpGet]
         [Route("[controller]/ChangeStock/{id}/{newStock}")]
         public void ChangeStock(Guid id, int newStock)
@@ -37,6 +39,7 @@ namespace ProductsAPI.Controllers
             new ProductsRepository().ChangeStock(id, newStock);
         }
 
+        [ApiKeyAuth]
         [HttpPost]
         [Route("[controller]/Add")]
         public Product Add(Product product)
@@ -44,6 +47,7 @@ namespace ProductsAPI.Controllers
             return new ProductsRepository().Add(product);
         }
 
+        [ApiKeyAuth]
         [HttpPost]
         [Route("[controller]/RemoveById/{id}")]
         public Product RemoveById(Guid id)
