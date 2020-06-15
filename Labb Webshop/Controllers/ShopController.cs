@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Labb_Webshop.Models;
 using Labb_Webshop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
 namespace Labb_Webshop.Controllers
@@ -15,6 +16,11 @@ namespace Labb_Webshop.Controllers
     public class ShopController : Controller
     {
         private readonly HttpClient client = new HttpClient();
+        private readonly IConfiguration _config;
+        public ShopController(IConfiguration config)
+        {
+            _config = config;
+        }
         public async Task<IActionResult> Index()
         {
             var response = await client.GetAsync("https://localhost:44389/Product/GetAll");
@@ -111,7 +117,10 @@ namespace Labb_Webshop.Controllers
                     var product = products.SingleOrDefault(p => p.Id == new Guid(productId));
                     if (product != null)
                     {
-                        client.GetAsync($"https://localhost:44389/Product/ChangeStock/{productId}/{product.Stock - productCount[productId]}");
+                        var request = new HttpRequestMessage(HttpMethod.Get, $"https://localhost:44389/Product/ChangeStock/{productId}/{product.Stock - productCount[productId]}");
+                        var apikey = _config.GetValue<string>("ApiKey");
+                        request.Headers.Add("ApiKey", apikey);
+                        client.SendAsync(request);
                     }
                     var json = JsonConvert.SerializeObject(new Order()
                     {
@@ -121,7 +130,11 @@ namespace Labb_Webshop.Controllers
                     });
                     using (var stringContent = new StringContent(json, Encoding.UTF8, "application/json"))
                     {
-                        await client.PostAsync("https://localhost:44343/Order/Add", stringContent);
+                        var request = new HttpRequestMessage(HttpMethod.Post, "https://localhost:44343/Order/Add");
+                        var apikey = _config.GetValue<string>("ApiKey");
+                        request.Headers.Add("ApiKey", apikey);
+                        request.Content = stringContent;
+                        await client.SendAsync(request);
                     }
                 }
             }
