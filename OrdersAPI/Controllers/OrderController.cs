@@ -10,7 +10,6 @@ using OrdersAPI.Repository;
 namespace OrdersAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class OrderController : ControllerBase
     {
         public OrderController()
