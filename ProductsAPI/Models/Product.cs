@@ -16,32 +16,31 @@ namespace ProductsAPI.Models
 
         public static bool operator ==(Product p1, Product p2)
         {
-            bool equal = true;
             if (p1.Id != p2.Id)
             {
-                equal = false;
+                return false;
             }
             if (p1.Name != p2.Name)
             {
-                equal = false;
+                return false;
             }
             if (p1.Description != p2.Description)
             {
-                equal = false;
+                return false;
             }
             if (p1.Price != p2.Price)
             {
-                equal = false;
+                return false;
             }
             if (p1.ImagePath != p2.ImagePath)
             {
-                equal = false;
+                return false;
             }
             if (p1.Stock != p2.Stock)
             {
-                equal = false;
+                return false;
             }
-            return equal;
+            return true;
         }
 
         public static bool operator !=(Product p1, Product p2)

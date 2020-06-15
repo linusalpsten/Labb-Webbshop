@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using Labb_Webshop.Models;
 using Labb_Webshop.ViewModels;
@@ -109,7 +111,17 @@ namespace Labb_Webshop.Controllers
                     var product = products.SingleOrDefault(p => p.Id == new Guid(productId));
                     if (product != null)
                     {
-                        client.GetAsync($"https://localhost:44389/Product/ChangeStock/{productId}/{product.Stock-productCount[productId]}");
+                        client.GetAsync($"https://localhost:44389/Product/ChangeStock/{productId}/{product.Stock - productCount[productId]}");
+                    }
+                    var json = JsonConvert.SerializeObject(new Order()
+                    {
+                        UserId = new Guid(User.FindFirstValue(ClaimTypes.NameIdentifier)),
+                        ProductId = new Guid(productId),
+                        Amount = productCount[productId]
+                    });
+                    using (var stringContent = new StringContent(json, Encoding.UTF8, "application/json"))
+                    {
+                        await client.PostAsync("https://localhost:44343/Order/Add", stringContent);
                     }
                 }
             }

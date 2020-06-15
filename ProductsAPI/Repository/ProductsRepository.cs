@@ -36,7 +36,7 @@ namespace ProductsAPI.Repository
         public Product RemoveById(Guid id)
         {
             var product = GetById(id);
-            context.Remove(product);
+            context.Products.Remove(product);
             context.SaveChanges();
             return product;
         }
